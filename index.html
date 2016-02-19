@@ -11,7 +11,7 @@
 
 <body ng-controller="homeCtrl">
 	<div class="l-header">
-		<h1>{{myProfile.name}}</h1>
+		<h1>{{myProfile.name || "Your Name"}}</h1> <!--displays the name inputed or "your name" if blank-->
 	</div>
   
   <div class="wrapper">  
