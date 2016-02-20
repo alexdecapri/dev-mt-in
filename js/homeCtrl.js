@@ -4,7 +4,8 @@ app.controller("homeCtrl", function($scope, profileService) {
 
 	//console.log(profileService);
 
-	$scope.myProfile = profileService.checkForProfile();
+	//deleted
+	//$scope.myProfile = profileService.checkForProfile();
 
 	$scope.sortOptions = [{
 		display: "Ascending",

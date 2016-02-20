@@ -1,7 +1,12 @@
-app.service("profileService", function() {
+app.service("profileService", function($http) {
+
+	var baseUrul = "ttp://connections.devmounta.in/";
+
+	/*
 	this.serviceTest = function() {
 		console.log("profileService is connected!");
 	};
+	*/
 
 	this.saveProfile = function(profile) {
 		localStorage.setItem("profile", JSON.stringify(profile));
@@ -16,7 +21,8 @@ app.service("profileService", function() {
 			return JSON.parse(localStorage.getItem("profile"));
 		}
 		return {
-			friends: [{name: 'Ryan'}, {name: 'Bryan'}, {name: 'Sarah'}, {name: 'Zac'}, {name: 'Erin'}]
+			//deleted friends in array because of Day 3
+			
 		}
 	};
 });
