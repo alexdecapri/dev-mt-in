@@ -1,6 +1,6 @@
 app.service("profileService", function($http) {
 
-	var baseUrul = "ttp://connections.devmounta.in/";
+	var baseUrl = "ttp://connections.devmounta.in/";
 
 	/*
 	this.serviceTest = function() {
@@ -9,7 +9,20 @@ app.service("profileService", function($http) {
 	*/
 
 	this.saveProfile = function(profile) {
-		localStorage.setItem("profile", JSON.stringify(profile));
+		return $http({
+			method: "POST", //request method
+			url: baseUrl + "api/profiles/", //URL we are making the request to
+			data: profile //data we are requesting ot be posted
+		})
+		.then(function(profileResponse) { //what to do after response comes back from the server
+			console.log(profileResponse);
+			localStorage.setItem("profileID", JSON.stringify({ 
+					profileId: profileResponse.data._id
+				}));
+		})
+		.catch(function(err) {
+			console.error(err);
+		});
 	};
 
 	this.deleteProfile = function(profile) {
