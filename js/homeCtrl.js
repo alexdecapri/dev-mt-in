@@ -1,6 +1,6 @@
-var app = angular.module("devMtIn");
+var app = angular.module("devMtIn", []);
 
-app.controller("homeCtrl", function($scope, profileService) {
+app.controller("homeCtrl", function($scope, profileService, friendService) {
 
 	//console.log(profileService);
 
@@ -55,6 +55,13 @@ app.controller("homeCtrl", function($scope, profileService) {
 	}
 
 	$scope.checkForProfile();
+
+	$scope.findFriends = function(query) {
+		friendService.findFriends($scope.myProfile._id, query)
+		.then(function(response) {
+			$scope.potentialFriends = response;
+		})
+	}
 
 });
 
